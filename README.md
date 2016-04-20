@@ -14,6 +14,7 @@ Either Windows or Mac will work. As long as you have a tool can open cpp files t
 None
 
 #Contributors
+None
 
 #Open	issues/bugs
-
+N/A
