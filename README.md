@@ -15,8 +15,8 @@ Either Windows or Mac will work. As long as you have a tool can open cbp files t
 None
 
 #Contributors
-1.mual3154\n
-2.MichaelJGilroy
+1.mual3154
+  2.MichaelJGilroy
 
 #Open	issues/bugs
 Open enhancement: Add a searching tool base on director or year range
