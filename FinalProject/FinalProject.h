@@ -72,10 +72,12 @@ class FinalProject
         void findMovieByranking(int ranking);
         void printMovieDirector();
         int countMovieInventory();
+	void printMoviesInYearRange(int startYear, int endYear);
 
 
     protected:
     private:
+	void printMoviesInYearRange(int startYear, int endYear, MovieNode * node);
         void printMovieInventory(MovieNode * node);
         void printMovieDirector(MovieNode *node);
         int countMovieInventory(MovieNode *node);

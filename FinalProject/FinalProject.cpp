@@ -304,16 +304,37 @@ void FinalProject::findMovie(string title){
 }
 
 void FinalProject::printMovieDirector(){
-    printMovieInventory(root); //display all movies in bst
+	printMovieDirector(root);
 }
-
 void FinalProject::printMovieDirector(MovieNode *node){
-    if(node !=NULL){ //check node is empty or not, if is not empty, then
-        if(node->leftChild) //node to left, and put into printMovieInventory function
-            printMovieInventory(node->leftChild);
-        cout<<"Movie: "<<node->director<<endl;
-        if(node->rightChild) //node to right, and put into printMovieInventory function
-            printMovieInventory(node->rightChild);
+    // before, this function called printMovieInventory instead of printMovieDirector recursively
+    if(node !=NULL){
+        if(node->leftChild){
+            printMovieDirector(node->leftChild);
+        }
+        findMovie(node->title);
+        if(node->rightChild){
+            printMovieDirector(node->rightChild);
+        }
     }
 }
+void FinalProject::printMoviesInYearRange(int startYear, int endYear){
+    MovieNode * node = root;
+    printMoviesInYearRange(startYear, endYear, node);
+}
+void FinalProject::printMoviesInYearRange(int startYear, int endYear, MovieNode * node){
+    if(node !=NULL){
+        if(node->leftChild){
+            printMoviesInYearRange(startYear, endYear, node->leftChild);
+        }
+        if(node->year <= endYear && node->year >=startYear){ // check to see if current node's year is in range
+            cout << "Movie: " << node->title << "\n" << "Year: "<< node->year << endl;
+        }
+        if(node->rightChild){
+            printMoviesInYearRange(startYear, endYear, node->rightChild);
+        }
+    }
+
+}
+
 

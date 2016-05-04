@@ -25,6 +25,8 @@ int main(int argc, char* argv[])
     string tmpdirector;
     string director;
     string title;
+    int startYear;
+    int endYear;
     int int_ranking;
     int int_year;
     int int_quantity;
@@ -68,10 +70,11 @@ int main(int argc, char* argv[])
         cout << "7. Rent a movie\n";
         cout << "8. Return a movie\n";
         cout << "9. Store a new movie\n";
-        cout << "10. Delete all movies in the list and quit\n";
+	cout << "10. Display movies in a range of years\n";
+        cout << "11. Delete all movies in the list and quit\n";
 
         cin >> choice; //get input to choose the option
-
+	if(cin.good()){
         switch (choice)
         {
             case 1:
@@ -141,8 +144,17 @@ int main(int argc, char* argv[])
 
                 t.addMovieNode(ranking,title,releaseYear,quantity,director);
                 break;
+	    
+	    case 10:
+		cout << "Enter year to begin with: " << endl;
+		
+		cin >> startYear;
+		cout << "Enter year to end with: " << endl;
+		cin >> endYear;
+		t.printMoviesInYearRange(startYear, endYear);
+		break;
 
-            case 10: cout<<"Goodbye!"<<endl; //output good bye and exit the main menu
+            case 11: cout<<"Goodbye!"<<endl; //output good bye and exit the main menu
 
             gameOn = false;
             break;
@@ -152,6 +164,13 @@ int main(int argc, char* argv[])
             cin >> choice;
             break;
         }
+	}
+	else{
+	    cout << "Not a valid choice." << endl;
+	    cin.clear();
+	    cin.ignore(9999, '\n');
+	    continue;	
+	}
     }
     return 0;
 }
